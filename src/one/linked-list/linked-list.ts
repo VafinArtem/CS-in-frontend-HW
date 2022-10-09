@@ -1,4 +1,5 @@
 import {LinkedList as ListInterface, ListItem} from "./interface";
+import {Item} from "./item";
 
 export class LinkedList<T> implements ListInterface<T>{
 	#first: Nullable<ListItem<T>> = null;
@@ -13,9 +14,7 @@ export class LinkedList<T> implements ListInterface<T>{
 	}
 
 	add(value: T) {
-		const item: ListItem<T> = {
-			value,
-		}
+		const item: ListItem<T> =  new Item(value);
 
 		if (!this.#first) {
 			this.#first = item;
