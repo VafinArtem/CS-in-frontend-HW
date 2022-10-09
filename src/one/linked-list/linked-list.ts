@@ -36,5 +36,17 @@ export class LinkedList<T> implements ListInterface<T>{
 			this.#last = item;
 		}
 	}
-}
 
+	public *values(): IterableIterator<T> {
+		let current = this.#first;
+
+		while (current) {
+			yield current.value;
+			current = current.next;
+		}
+	}
+
+	[Symbol.iterator](): IterableIterator<T> {
+		return this.values();
+	}
+}

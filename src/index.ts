@@ -10,3 +10,7 @@ linkedList.add(`5`);
 
 console.log(linkedList.first.next.next.value);
 console.log(linkedList.last.prev.prev.value);
+
+for (const value of linkedList) {
+	console.log(value);
+}
