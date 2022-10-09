@@ -1,7 +1,10 @@
 export interface LinkedList<T> {
 	add(value: T): void;
+	remove(value: T): void;
+	values(): IterableIterator<T>;
 	get first(): ListItem<T>;
 	get last(): ListItem<T>;
+	get items(): Iterable<ListItem<T>>;
 	[Symbol.iterator](): IterableIterator<T>;
 }
 

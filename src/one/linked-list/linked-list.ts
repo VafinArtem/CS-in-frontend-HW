@@ -13,6 +13,18 @@ export class LinkedList<T> implements ListInterface<T>{
 		return this.#last;
 	}
 
+	get items(): Iterable<ListItem<T>> {
+		let current = this.#first;
+		return {
+			* [Symbol.iterator](): Iterator<ListItem<T>> {
+				while (current) {
+					yield current;
+					current = current.next
+				}
+			}
+		}
+	}
+
 	add(value: T) {
 		const item: ListItem<T> =  new Item(value);
 
@@ -36,7 +48,41 @@ export class LinkedList<T> implements ListInterface<T>{
 		}
 	}
 
-	public *values(): IterableIterator<T> {
+	find(value: T): Nullable<ListItem<T>> {
+		for (let item of this.items) {
+			if (value === item.value) {
+				return item;
+			}
+		}
+		return null;
+	}
+
+	remove(value: T) {
+		const foundItem: ListItem<T> = this.find(value);
+
+		const prevItem = foundItem.prev;
+		const nextItem = foundItem.next;
+
+		if (prevItem) {
+			if (nextItem) {
+				prevItem.next = nextItem;
+			} else {
+				prevItem.next = null;
+				this.#last = prevItem;
+			}
+		}
+
+		if (nextItem) {
+			if (prevItem) {
+				nextItem.prev = prevItem;
+			} else {
+				nextItem.prev = null;
+				this.#first = nextItem;
+			}
+		}
+	}
+
+	*values(): IterableIterator<T> {
 		let current = this.#first;
 
 		while (current) {
