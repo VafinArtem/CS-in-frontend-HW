@@ -48,6 +48,11 @@ export class LinkedList<T> implements ListInterface<T>{
 		}
 	}
 
+	#resetList() {
+		this.#first = null;
+		this.#last = null;
+	}
+
 	find(value: T): Nullable<ListItem<T>> {
 		for (let item of this.items) {
 			if (value === item.value) {
@@ -59,6 +64,11 @@ export class LinkedList<T> implements ListInterface<T>{
 
 	remove(value: T) {
 		const foundItem: ListItem<T> = this.find(value);
+
+		if (!foundItem.next && !foundItem.prev) {
+			this.#resetList();
+			return;
+		}
 
 		const prevItem = foundItem.prev;
 		const nextItem = foundItem.next;
