@@ -4,6 +4,7 @@ import {Item} from "./item";
 export class LinkedList<T> implements ListInterface<T>{
 	#first: Nullable<ListItem<T>> = null;
 	#last: Nullable<ListItem<T>> = null;
+	length = 0;
 
 	get first() {
 		return this.#first;
@@ -25,8 +26,11 @@ export class LinkedList<T> implements ListInterface<T>{
 		}
 	}
 
+	// вставляет элемент #last
 	add(value: T) {
 		const item: ListItem<T> =  new Item(value);
+		this.length++;
+
 
 		if (!this.#first) {
 			this.#first = item;
@@ -35,7 +39,6 @@ export class LinkedList<T> implements ListInterface<T>{
 
 		if (this.#first && !this.#last) {
 			item.prev = this.#first;
-
 			this.#last = item;
 			this.#first.next = item;
 			return;
@@ -48,9 +51,36 @@ export class LinkedList<T> implements ListInterface<T>{
 		}
 	}
 
-	#resetList() {
-		this.#first = null;
-		this.#last = null;
+	// вставляет элемент #first
+	insertBefore(value: T) {
+		const item: ListItem<T> =  new Item(value);
+
+		if (this.isEmpty()) {
+			this.#first = item;
+			this.length++;
+			return;
+		}
+
+		if (this.length === 1) {
+			this.#last = this.#first;
+			this.#first = item;
+			this.#first.next = this.#last;
+			this.#last.prev = this.#first;
+			this.length++;
+			return;
+		}
+
+		if (this.length > 1) {
+			item.next = this.#first;
+			this.#first.prev = item;
+			this.#first = item;
+			this.length++;
+		}
+	}
+
+	// вставляет элемент #last
+	insertAfter(value: T) {
+		this.add(value);
 	}
 
 	find(value: T): Nullable<ListItem<T>> {
@@ -69,6 +99,8 @@ export class LinkedList<T> implements ListInterface<T>{
 			this.#resetList();
 			return;
 		}
+
+		this.length--;
 
 		const prevItem = foundItem.prev;
 		const nextItem = foundItem.next;
@@ -90,6 +122,16 @@ export class LinkedList<T> implements ListInterface<T>{
 				this.#first = nextItem;
 			}
 		}
+	}
+
+	isEmpty(): boolean {
+		return !this.length;
+	}
+
+	#resetList() {
+		this.#first = null;
+		this.#last = null;
+		this.length = 0;
 	}
 
 	*values(): IterableIterator<T> {

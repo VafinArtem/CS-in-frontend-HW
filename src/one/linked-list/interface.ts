@@ -1,7 +1,11 @@
 export interface LinkedList<T> {
 	add(value: T): void;
+	insertBefore(value: T): void;
+	insertAfter(value: T): void;
 	remove(value: T): void;
 	values(): IterableIterator<T>;
+	isEmpty(): boolean;
+	length: number;
 	get first(): ListItem<T>;
 	get last(): ListItem<T>;
 	get items(): Iterable<ListItem<T>>;
