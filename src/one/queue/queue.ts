@@ -4,6 +4,7 @@ import {LinkedList} from "../linked-list/linked-list";
 export class Queue<T> implements QueueInterface<T> {
 	#queue;
 
+	// Возвращает элемент, который вернется с помощью метода dequeue()
 	get head(): T {
 		return this.#queue.first.value;
 	}
@@ -12,11 +13,13 @@ export class Queue<T> implements QueueInterface<T> {
 		this.#queue = new LinkedList<T>();
 	}
 
-	push(value: T) {
+	// Помещает элемент в конец #last
+	enqueue(value: T) {
 		this.#queue.add(value)
 	}
 
-	shift(): T {
+	// Удаляет элемент с начала и возвращает его значение #first
+	dequeue(): T {
 		if (!this.#queue.first) {
 			throw `The queue is empty`;
 		}

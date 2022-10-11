@@ -1,5 +1,5 @@
 export interface Queue<T> {
-	push(value: T): void;
+	enqueue(value: T): void;
 	get head(): T;
-	shift(): T;
+	dequeue(): T;
 }
