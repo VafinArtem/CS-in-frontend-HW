@@ -1,6 +1,7 @@
 import {LinkedList} from "./one/linked-list/linked-list";
 import {Queue} from "./one/queue/queue";
 import {Stack} from "./one/stack/stack";
+import {Structure} from "./one/structure/structure";
 
 const linkedList = new LinkedList();
 
@@ -57,17 +58,27 @@ const stack = new Stack(3);
 // pop - удаляет последний помещенный элемент из массива и возвращает его
 // head - возвращает последний помещенный элемент
 
-stack.push(10);
-stack.push(11);
-stack.push(12);
-// stack.push(13); // Exception overflow
+// stack.push(10);
+// stack.push(11);
+// stack.push(12);
+// // stack.push(13); // Exception overflow
+//
+// console.log(stack.head);  // 12
+//
+// console.log(stack.pop()); // 12
+//
+// console.log(stack.head);  // 11
+//
+// console.log(stack.pop()); // 11
+// console.log(stack.pop()); // 10
+// console.log(stack.pop()); // Exception
 
-console.log(stack.head);  // 12
+const structure = new Structure(['name', 'lastName', 'age']);
 
-console.log(stack.pop()); // 12
+// Структура на основе массива
 
-console.log(stack.head);  // 11
+structure.set('name', 'Jack');
+structure.set('lastName', 'Black');
+structure.set('age', 53);
 
-console.log(stack.pop()); // 11
-console.log(stack.pop()); // 10
-console.log(stack.pop()); // Exception
+console.log(structure.get('age')); // 'Jack'
