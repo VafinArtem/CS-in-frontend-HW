@@ -4,4 +4,5 @@
 
 **Решения домашних заданий:**
 
-1. ссылка 1
+- [Первая домашняя работа](https://github.com/VafinArtem/CS-in-frontend-HW/tree/master/src/one)
+
