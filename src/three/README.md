@@ -1,6 +1,6 @@
 # Важнейшие структуры данных
 
-## 1.  динамический расширяемый массив на основе связанного списка (список массивов)
+## 1. Динамический расширяемый массив на основе связанного списка (список массивов)
 
 Вызов класса ***DynamicArray***, при вызове передать емкость массива
 
@@ -34,4 +34,8 @@ console.log(dynamicArray.get(1));  // 2
 console.log(dynamicArray.get(4));  // 5
 console.log(dynamicArray.get(7));  // 8
 console.log(dynamicArray.get(9));  // undefined
+
+for (const value of dynamicArray) {
+	console.log(value); // 1,2,3,4,5,6,7,8
+}
 ```

@@ -56,4 +56,23 @@ export class DynamicArray<T> implements DynamicArrayInterface<T> {
 	get length(): number {
 		return this.#length;
 	}
+
+	*values(): IterableIterator<T> {
+		let current = this.#list.first;
+		let index = 0;
+
+		while (current.value[index]) {
+			yield current.value[index];
+			index++;
+
+			if (index === this.#capacity) {
+				index = 0;
+				current = current.next;
+			}
+		}
+	}
+
+	[Symbol.iterator](): IterableIterator<T> {
+		return this.values();
+	}
 }
