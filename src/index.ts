@@ -2,6 +2,7 @@ import {LinkedList} from "./one/linked-list/linked-list";
 import {Queue} from "./one/queue/queue";
 import {Stack} from "./one/stack/stack";
 import {Structure} from "./one/structure/structure";
+import {DynamicArray} from "./three/dynamic-array/dynamic-array";
 
 const linkedList = new LinkedList();
 
@@ -10,7 +11,7 @@ const linkedList = new LinkedList();
 // linkedList.add(`3`);
 // linkedList.add(`4`);
 // linkedList.add(`5`);
-//
+
 // console.log(linkedList.first.next.next.value);
 // console.log(linkedList.last.prev.prev.value);
 //
@@ -77,8 +78,27 @@ const structure = new Structure(['name', 'lastName', 'age']);
 
 // Структура на основе массива
 
-structure.set('name', 'Jack');
-structure.set('lastName', 'Black');
-structure.set('age', 53);
+// structure.set('name', 'Jack');
+// structure.set('lastName', 'Black');
+// structure.set('age', 53);
+//
+// console.log(structure.get('age')); // 'Jack'
 
-console.log(structure.get('age')); // 'Jack'
+const dynamicArray = new DynamicArray(3);
+
+dynamicArray.add(1);
+dynamicArray.add(2);
+dynamicArray.add(3);
+dynamicArray.add(4);
+dynamicArray.add(5);
+dynamicArray.add(6);
+dynamicArray.add(7);
+dynamicArray.add(8);
+
+console.log(dynamicArray.length);  // 8
+
+console.log(dynamicArray.get(0));  // 1
+console.log(dynamicArray.get(1));  // 2
+console.log(dynamicArray.get(4));  // 5
+console.log(dynamicArray.get(7));  // 8
+console.log(dynamicArray.get(9));  // undefined
