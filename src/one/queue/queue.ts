@@ -2,7 +2,7 @@ import {Queue as QueueInterface} from "./interface";
 import {LinkedList} from "../linked-list/linked-list";
 
 export class Queue<T> implements QueueInterface<T> {
-	#queue;
+	#queue: LinkedList<T>;
 
 	// Возвращает элемент, который вернется с помощью метода dequeue()
 	get head(): T {
