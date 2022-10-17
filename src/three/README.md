@@ -79,3 +79,17 @@ console.log(vector.pop()); // 2
 console.log(vector.pop()); // 1
 console.log(vector.pop()); // undefined
 ```
+
+## 3. Хеш-таблица
+
+## 4. Бинарный поиск в массиве
+
+Вызов функции ***binarySearch***, при вызове передать искомое значение и отсортированный массив.
+Возвращает найденный индекс элемента, если элемент не найден то "Value not found".
+
+**Пример:**
+
+```js
+console.log(binarySearch(4, [-432, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 98])) // 8
+console.log(binarySearch(123, [-432, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 98])) // Value not found;
+```
