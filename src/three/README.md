@@ -39,3 +39,43 @@ for (const value of dynamicArray) {
 	console.log(value); // 1,2,3,4,5,6,7,8
 }
 ```
+
+## 2. Динамический расширяемый массив как вектор
+
+Вызов класса ***Vector***, при вызове передать емкость массива
+
+**Методы:**
+
+- **push** - помещает элемент в первый свободный индекс массива
+- **pop** - удаляет последний элемент массива и возвращает его
+- **get** - получает значение по переданному индексу
+
+**Гетеры:**
+
+- **length** - получение текущей длины массива
+
+**Пример:**
+
+```js
+const vector = new Vector(3);
+
+vector.push(1);
+vector.push(2);
+vector.push(3);
+vector.push(4);
+
+for (const element of vector) {
+	console.log(element); // 1, 2, 3, 4, undefined, undefined
+}
+
+console.log(vector.length); // 4
+
+console.log(vector.get(0)); // 1
+console.log(vector.get(1)); // 2
+
+console.log(vector.pop()); // 4
+console.log(vector.pop()); // 3
+console.log(vector.pop()); // 2
+console.log(vector.pop()); // 1
+console.log(vector.pop()); // undefined
+```

@@ -3,6 +3,7 @@ import {Queue} from "./one/queue/queue";
 import {Stack} from "./one/stack/stack";
 import {Structure} from "./one/structure/structure";
 import {DynamicArray} from "./three/dynamic-array/dynamic-array";
+import {Vector} from "./three/vector/vector";
 
 const linkedList = new LinkedList();
 
@@ -85,24 +86,45 @@ const structure = new Structure(['name', 'lastName', 'age']);
 // console.log(structure.get('age')); // 'Jack'
 
 const dynamicArray = new DynamicArray(3);
-
-dynamicArray.add(1);
-dynamicArray.add(2);
-dynamicArray.add(3);
-dynamicArray.add(4);
-dynamicArray.add(5);
-dynamicArray.add(6);
-dynamicArray.add(7);
-dynamicArray.add(8);
-
-for (const value of dynamicArray) {
-	console.log(value);
-}
-
-// console.log(dynamicArray.length);  // 8
 //
-// console.log(dynamicArray.get(0));  // 1
-// console.log(dynamicArray.get(1));  // 2
-// console.log(dynamicArray.get(4));  // 5
-// console.log(dynamicArray.get(7));  // 8
-// console.log(dynamicArray.get(9));  // undefined
+// dynamicArray.add(1);
+// dynamicArray.add(2);
+// dynamicArray.add(3);
+// dynamicArray.add(4);
+// dynamicArray.add(5);
+// dynamicArray.add(6);
+// dynamicArray.add(7);
+// dynamicArray.add(8);
+//
+// for (const value of dynamicArray) {
+// 	console.log(value);
+// }
+//
+// // console.log(dynamicArray.length);  // 8
+// // console.log(dynamicArray.get(0));  // 1
+// // console.log(dynamicArray.get(1));  // 2
+// // console.log(dynamicArray.get(4));  // 5
+// // console.log(dynamicArray.get(7));  // 8
+// // console.log(dynamicArray.get(9));  // undefined
+
+const vector = new Vector(3);
+
+// vector.push(1);
+// vector.push(2);
+// vector.push(3);
+// vector.push(4);
+//
+// for (const element of vector) {
+// 	console.log(element); // 1, 2, 3, 4, undefined, undefined
+// }
+//
+// console.log(vector.length); // 4
+//
+// console.log(vector.get(0)); // 1
+// console.log(vector.get(1)); // 2
+//
+// console.log(vector.pop()); // 4
+// console.log(vector.pop()); // 3
+// console.log(vector.pop()); // 2
+// console.log(vector.pop()); // 1
+// console.log(vector.pop()); // undefined
