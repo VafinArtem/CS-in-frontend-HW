@@ -5,6 +5,7 @@ import {Structure} from "./one/structure/structure";
 import {DynamicArray} from "./three/dynamic-array/dynamic-array";
 import {Vector} from "./three/vector/vector";
 import {binarySearch} from "./three/binary-search/binary-search";
+import {isDigit} from "./four/is-digit/is-digit";
 
 const linkedList = new LinkedList();
 
@@ -130,5 +131,13 @@ const vector = new Vector(3);
 // console.log(vector.pop()); // 1
 // console.log(vector.pop()); // undefined
 
-console.log(binarySearch(4, [-432, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 98])) // 8
-console.log(binarySearch(123, [-432, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 98])) // Value not found;
+// console.log(binarySearch(4, [-432, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 98])) // 8
+// console.log(binarySearch(123, [-432, 0, 1, 1, 2, 2, 2, 3, 4, 5, 6, 98])) // Value not found;
+
+// console.log(isDigit('123a')); // false
+// console.log(isDigit('123')); // true
+// console.log(isDigit('Ⅺ')); // true
+// console.log(isDigit('ↁ')); // false
+// console.log(isDigit('⅛')); // true
+// console.log(isDigit('ↅ')); // false
+// console.log(isDigit('ↅ123Ⅺ')); // false
