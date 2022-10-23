@@ -20,3 +20,9 @@ export const createStringFromTemplate = (stringTemplate, options) => {
 export const deleteRepeat = (string) => {
 	return string.replace(/(\w{1,3}?)\1+/g, `$1`);
 }
+
+export const calc = (expression) => {
+	return expression.replace(/[\d(][\d+\-*\/() ]+/mig, (...args) =>
+		Function('', `return ${args[0]}`)()
+	).replace(/^\n/, '');
+}
