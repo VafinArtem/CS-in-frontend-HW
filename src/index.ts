@@ -4,7 +4,7 @@ import {Stack} from "./one/stack/stack";
 import {Structure} from "./one/structure/structure";
 import {DynamicArray} from "./three/dynamic-array/dynamic-array";
 import {Vector} from "./three/vector/vector";
-import {arrayFromStringWithSeparators, isLatinNumericOrDollar} from "./five";
+import {createStringFromTemplate} from "./five";
 
 const linkedList = new LinkedList();
 
@@ -147,4 +147,5 @@ const vector = new Vector(3);
 // console.log(isLatinNumericOrDollar(`asd_$`)); // true
 // console.log(isLatinNumericOrDollar(`asd_$ 123`)); // false
 
-console.log(arrayFromStringWithSeparators(`foo    bla.bar,gd;4`));
+// console.log(arrayFromStringWithSeparators(`foo    bla.bar,gd;4`));
+console.log(createStringFromTemplate('Hello, ${user}! Your age is ${age}.', {user: 'Bob', age: '10'}));
