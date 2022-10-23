@@ -17,3 +17,6 @@ export const createStringFromTemplate = (stringTemplate, options) => {
 	})
 }
 
+export const deleteRepeat = (string) => {
+	return string.replace(/(\w{1,3}?)\1+/g, `$1`);
+}
