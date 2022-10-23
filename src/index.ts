@@ -6,6 +6,7 @@ import {DynamicArray} from "./three/dynamic-array/dynamic-array";
 import {Vector} from "./three/vector/vector";
 import {binarySearch} from "./three/binary-search/binary-search";
 import {isDigit} from "./four/is-digit/is-digit";
+import {stringIterator} from "./four/string-iterator/string-iterator";
 
 const linkedList = new LinkedList();
 
@@ -141,3 +142,6 @@ const vector = new Vector(3);
 // console.log(isDigit('⅛')); // true
 // console.log(isDigit('ↅ')); // false
 // console.log(isDigit('ↅ123Ⅺ')); // false
+
+// console.log([...stringIterator('😀🧓')]);
+// console.log([...stringIterator('wd😀2🧓🧓1🇦🇩Ⅺ')]);
