@@ -5,6 +5,7 @@ import {Structure} from "./one/structure/structure";
 import {DynamicArray} from "./three/dynamic-array/dynamic-array";
 import {Vector} from "./three/vector/vector";
 import {calc, createStringFromTemplate, deleteRepeat} from "./five";
+import {random} from "./six/random/random";
 
 const linkedList = new LinkedList();
 
@@ -155,7 +156,13 @@ const vector = new Vector(3);
 // console.log(deleteRepeat(`abababbbabcabc`)); // 'abbabc'
 // console.log(deleteRepeat(`foofoobabaaaazze`)); // 'foobaaze'
 
-console.log(calc(`
-Какой-то текст (10 + 15 - 24) ** 2
-Еще какой то текст 2 * 10
-`));
+// console.log(calc(`
+// Какой-то текст (10 + 15 - 24) ** 2
+// Еще какой то текст 2 * 10
+// `));
+
+const randomInt = random(0, 10);
+
+// console.log(randomInt.next());
+// console.log(randomInt.next());
+// console.log(randomInt.next());
