@@ -1,5 +1,6 @@
 function filter<T>(iterableObj: Iterable<T>, callback: Function): IterableIterator<T> {
 	const iterator = iterableObj[Symbol.iterator]();
+
 	return {
 		[Symbol.iterator]() {
 			return this;
