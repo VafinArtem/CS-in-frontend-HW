@@ -8,6 +8,7 @@ import {calc, createStringFromTemplate, deleteRepeat} from "./five";
 import {random} from "./six/random/random";
 import {take} from "./six/take/take";
 import {filter} from "./six/filter/filter";
+import {enumerate} from "./six/enumerate/enumerate";
 
 const linkedList = new LinkedList();
 
@@ -171,4 +172,6 @@ const randomInt = random(0, 10);
 
 // console.log([...take(randomInt, 15)]);
 
-console.log([...take(filter(randomInt, (el: number) => el > 5), 10)]);
+// console.log([...take(filter(randomInt, (el: number) => el > 5), 10)]);
+
+console.log([...take(enumerate(randomInt), 5)]);
