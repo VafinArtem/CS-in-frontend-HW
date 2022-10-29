@@ -11,6 +11,7 @@ import {filter} from "./six/filter/filter";
 import {enumerate} from "./six/enumerate/enumerate";
 import {Range} from "./six/range/range";
 import {seq} from "./six/seq/seq";
+import {zip} from "./six/zip/zip";
 
 const linkedList = new LinkedList();
 
@@ -183,3 +184,5 @@ const rangeSymbols = new Range(-5, 1);
 // console.log(Array.from(rangeSymbols.revers()));
 
 // console.log([...seq(new Set([3, 4]), [1, 2], 'bla')]);
+
+// console.log(...zip(new Set([3, 4]), [1, 2], 'bl'));
