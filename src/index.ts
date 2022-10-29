@@ -4,7 +4,7 @@ import {Stack} from "./one/stack/stack";
 import {Structure} from "./one/structure/structure";
 import {DynamicArray} from "./three/dynamic-array/dynamic-array";
 import {Vector} from "./three/vector/vector";
-import {calc, createStringFromTemplate, deleteRepeat} from "./five";
+import {isLatinNumericOrDollar, arrayFromStringWithSeparators, calc, createStringFromTemplate, deleteRepeat} from "./five";
 import {random} from "./six/random/random";
 import {take} from "./six/take/take";
 import {filter} from "./six/filter/filter";
@@ -157,7 +157,7 @@ const vector = new Vector(3);
 
 // console.log(arrayFromStringWithSeparators(`foo    bla.bar,gd;4`));
 
-// console.log(createStringFromTemplate('Hello, ${user}! Your age is ${age}.', {user: 'Bob', age: '10'}));
+// console.log(createStringFromTemplate('Hello, ${user}! Your age is ${age}.', {user: 'Bob', age: 10}));
 
 // console.log(deleteRepeat(`aaaabbbbczzzz`)); // 'abcz'
 // console.log(deleteRepeat(`abababbbabcabc`)); // 'abbabc'
@@ -188,4 +188,4 @@ const rangeSymbols = new Range(-5, 1);
 
 // console.log(...zip(new Set([3, 4]), [1, 2], 'bl'));
 
-console.log(...mapSeq([1, 2, 3], [(el: number) => el * 2, (el: number) => el - 1])); // [1, 3, 5]
+// console.log(...mapSeq([1, 2, 3], [(el: number) => el * 2, (el: number) => el - 1])); // [1, 3, 5]
