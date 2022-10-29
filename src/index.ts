@@ -170,22 +170,27 @@ const vector = new Vector(3);
 
 const randomInt = random(0, 10);
 
-// console.log(randomInt.next());
-// console.log(randomInt.next());
-// console.log(randomInt.next());
+// console.log(randomInt.next()); // {value: 6, done: false}
+// console.log(randomInt.next()); // {value: 7, done: false}
+// console.log(randomInt.next()); // {value: 0, done: false}
+// console.log(randomInt.next()); // {value: 7, done: false}
 
-// console.log([...take(randomInt, 15)]);
+// console.log([...take(randomInt, 15)]); // [1, 0, 7, 0, 0, 6, 2, 7, 1, 5, 3, 6, 5, 1, 1]
 
-// console.log([...take(filter(randomInt, (el: number) => el > 5), 10)]);
+// console.log([...take(filter(randomInt, (el: number) => el > 5), 10)]); // [7, 7, 8, 9, 7, 9, 9, 8, 9, 7]
 
-// console.log([...take(enumerate(randomInt), 5)]);
+// console.log([...take(enumerate(randomInt), 5)]); // [[1, 6], [2, 8], [3, 2], [4, 3], [5, 8]]
 
-const rangeSymbols = new Range(-5, 1);
+// const symbolRange = new Range('a', 'f');
+//
+// console.log(Array.from(symbolRange)); // ['a', 'b', 'c', 'd', 'e', 'f']
+//
+// const numberRange = new Range(-5, 1);
+//
+// console.log(Array.from(numberRange.revers())); // [1, 0, -1, -2, -3, -4, -5]
 
-// console.log(Array.from(rangeSymbols.revers()));
+// console.log([...seq(new Set([3, 4]), [1, 2], 'bla')]); // [3, 4, 1, 2, 'b', 'l', 'a']
 
-// console.log([...seq(new Set([3, 4]), [1, 2], 'bla')]);
+// console.log(...zip(new Set([3, 4]), [1, 2], 'bl')); // [[3, 1, 'b'], [4, 2, 'l']]
 
-// console.log(...zip(new Set([3, 4]), [1, 2], 'bl'));
-
-// console.log(...mapSeq([1, 2, 3], [(el: number) => el * 2, (el: number) => el - 1])); // [1, 3, 5]
+// console.log([...mapSeq([1, 2, 3], [(el: number) => el * 2, (el: number) => el - 1])]); // [1 3 5]
