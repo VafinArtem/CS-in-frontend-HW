@@ -12,6 +12,7 @@ import {enumerate} from "./six/enumerate/enumerate";
 import {Range} from "./six/range/range";
 import {seq} from "./six/seq/seq";
 import {zip} from "./six/zip/zip";
+import {mapSeq} from "./six/map-seq/map-seq";
 
 const linkedList = new LinkedList();
 
@@ -186,3 +187,5 @@ const rangeSymbols = new Range(-5, 1);
 // console.log([...seq(new Set([3, 4]), [1, 2], 'bla')]);
 
 // console.log(...zip(new Set([3, 4]), [1, 2], 'bl'));
+
+console.log(...mapSeq([1, 2, 3], [(el: number) => el * 2, (el: number) => el - 1])); // [1, 3, 5]
