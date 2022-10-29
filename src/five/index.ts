@@ -5,7 +5,7 @@ const isLatinNumericOrDollar = (string: string): Boolean => {
 }
 
 const arrayFromStringWithSeparators = (string: string): string[] => {
-	const regExp = /\.|,|;| +/g
+	const regExp = /[.,; ]+/g
 	return string.split(regExp);
 }
 
