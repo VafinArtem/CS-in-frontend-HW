@@ -1,10 +1,10 @@
-function zip<T>(...iterablesObj: Array<Iterable<T> | string>) {
-	const length = iterablesObj.length;
-	let index: number = 0;
-	let indexIter: number = 0;
-	let cursor: Iterator<T> | IterableIterator<string>;
-	let value: Array<T | string>[] = [];
+function zip<T>(...iterablesObj: Array<Iterable<T> | string>): IterableIterator<unknown> {
+	const iterators: Iterator<T>[] | IterableIterator<string>[] = [];
 
+	// Записываем итераторы в отдельный массив
+	iterablesObj.forEach((object, index) => {
+		iterators[index] = object[Symbol.iterator]();
+	})
 
 	return {
 		[Symbol.iterator]() {
@@ -12,48 +12,30 @@ function zip<T>(...iterablesObj: Array<Iterable<T> | string>) {
 		},
 
 		next() {
-			if (indexIter > length - 1) {
-				return {
-					done: true,
-					value,
-				}
-			}
+			const value: Array<T | string>[] = [];
 
-			if (!cursor) {
-				cursor = iterablesObj[indexIter][Symbol.iterator]();
-			}
+			for (let i = 0; i < iterators.length; i++) {
+				// Вызываем next итераторов в цикле
+				const result = iterators[i].next();
 
-			const result = cursor.next();
-
-			if (!result.done) {
-				if (!value[index]) {
-					value[index] = [];
-				}
-
-				value[index].push(result.value);
-
-				index++;
-
-				return this.next();
-			} else {
-				cursor = null;
-				index = 0;
-
-				if (indexIter === length - 1) {
-					indexIter++;
-
+				if (!result.done) {
+					// записываем value каждого в массив с value
+					value.push(result.value);
+				} else {
+					// Заканчиваем итерацию
 					return {
-						done: false,
-						value,
-					}
+						done: true,
+						value: null
+					};
 				}
-
-				indexIter++;
-
-				return this.next();
 			}
-		}
 
+			// Отдаем value после завершения цикла
+			return {
+				done: false,
+				value
+			};
+		}
 	}
 }
 
